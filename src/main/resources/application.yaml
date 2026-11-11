@@ -2,7 +2,7 @@ spring:
   application:
     name: api-registry
   datasource:
-    url: jdbc:postgresql://localhost:5432/registry
+    url: jdbc:postgresql://localhost:5433/registry
     username: registry
     password: registry
   jpa:
