@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(java -version)",
+      "Bash(/usr/libexec/java_home -V)",
+      "Bash(git --version)",
+      "Bash(terraform version *)",
+      "Bash(aws --version)"
+    ]
+  }
+}
