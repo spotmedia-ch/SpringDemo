@@ -24,6 +24,20 @@ jobs:
             target/failsafe-reports
             target/site/jacoco
 
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+      - name: Regenerate docs/openapi.json from the application
+        run: ./mvnw --batch-mode verify -Dopenapi.update=true -Dit.test=OpenApiContractIT
+      - name: Fail if the committed contract is out of date
+        run: git diff --exit-code docs/openapi.json
+
   image:
     runs-on: ubuntu-latest
     steps:
